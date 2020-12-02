@@ -7,6 +7,6 @@ namespace Db4o_Sprawozdanie.Models
 {
     public class Mechanic : Person
     {
-       
+       public Mechanic() { }
     }
 }

@@ -4,10 +4,10 @@ namespace Db4o_Sprawozdanie.Operations.Params
 {
     public class GetCarsOperationParams : IOperationParams
     {
-        public string Brand;
-        public string Model;
-        public string CustomerFirstName;
-        public string CustomerLastName;
-        public string MechanicName;
+        public string Brand { get; set; }
+        public string Model { get; set; }
+        public string CustomerFirstName { get; set; }
+        public string CustomerLastName { get; set; }
+        public string MechanicName { get; set; }
     }
 }

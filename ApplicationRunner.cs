@@ -16,21 +16,30 @@ namespace Db4o_Sprawozdanie
             {
                 Console.WriteLine("Select operation: ");
                 Console.Write("1.Get cars based on query\n");
+                Console.Write("2.Add car\n");
                 var operation = Console.ReadKey();
                 PerformOperation(operation);
             }
         }
         private void PerformOperation(ConsoleKeyInfo operation)
         {
+            var factory = new ParamsFactory();
             var db = DependencyManager.Get<IObjectContainer>();
             switch (operation.KeyChar)
             {
                 case '1':
-                    var param = new GetCarsOperationParams();
+                    var param = factory.GetParams<GetCarsOperationParams>();
                     var handler = new GetCarsOperationHandler(db);
                     var result = handler.PerformOperation(param);
                     break;
+                case '2':
+                    var newCarParam = factory.GetParams<NewCarParams>();
+                    var newCarHandler = new AddCarOperationHandler(db);
+                    newCarHandler.PerformOperation(newCarParam);
+                    break;
             }
         }
+
+       
     }
 }

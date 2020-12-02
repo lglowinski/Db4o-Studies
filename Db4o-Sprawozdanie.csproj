@@ -53,6 +53,8 @@
     <Compile Include="Models\Mechanic.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\TitleEnum.cs" />
+    <Compile Include="Operations\OperationsHandler\AddCarOperationHandler.cs" />
+    <Compile Include="Operations\Params\NewCarParams.cs" />
     <Compile Include="Operations\IOperationParams.cs" />
     <Compile Include="Operations\IOperationResult.cs" />
     <Compile Include="Operations\IOperationHandler.cs" />

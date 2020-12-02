@@ -7,8 +7,10 @@ namespace Db4o_Sprawozdanie.Models
 {
     public class Customer : Person
     {
-        public string PhoneNumber;
-        public TitleEnum Title;
+        public Customer() { }
+
+        public string PhoneNumber { get; set; }
+        public TitleEnum Title { get; set; }
 
         public override string ToString()
         {

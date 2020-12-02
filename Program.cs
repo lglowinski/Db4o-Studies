@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Db4o_Sprawozdanie.DI;
+using Db4objects.Db4o;
 
 namespace Db4o_Sprawozdanie
 {
@@ -11,7 +10,15 @@ namespace Db4o_Sprawozdanie
         {
             var applicationRunner = new ApplicationRunner();
             Db4oConnection.RegisterDb4oConnection(@"C:\myDb\carsDb.yap");
+            AppDomain.CurrentDomain.ProcessExit += new EventHandler(OnProcessExit);
             applicationRunner.Run();
+        }
+
+        static void OnProcessExit(object sender, EventArgs e)
+        {
+            Console.WriteLine("Application has closed");
+            var _db = DependencyManager.Get<IObjectContainer>();
+            _db.Close();
         }
     }
 }
