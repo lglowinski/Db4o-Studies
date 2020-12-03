@@ -1,6 +1,4 @@
-﻿using Db4o_Sprawozdanie.Operations.Results;
-
-namespace Db4o_Sprawozdanie.Operations.Params
+﻿namespace Db4o_Sprawozdanie.Operations.Params
 {
     public class GetCarsOperationParams : IOperationParams
     {

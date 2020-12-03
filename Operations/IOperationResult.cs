@@ -1,6 +1,7 @@
 ﻿namespace Db4o_Sprawozdanie.Operations
 {
-    interface IOperationResult
+    public interface IOperationResult
     {
+        void LogResult();
     }
 }

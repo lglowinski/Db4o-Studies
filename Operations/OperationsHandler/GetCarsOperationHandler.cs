@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Db4o_Sprawozdanie.Models;
 using Db4o_Sprawozdanie.Operations.Params;
 using Db4o_Sprawozdanie.Operations.Results;
@@ -29,15 +28,20 @@ namespace Db4o_Sprawozdanie.Operations.OperationsHandler
             return ConvertResult(result);
         }
 
-        private GetCarsOperationResult ConvertResult(IObjectSet result)
+        GetCarsOperationResult ConvertResult(IObjectSet objectSet)
         {
-            var carsList = new List<Car>();           
-            foreach(var item in result)
+            var carsList = new List<Car>();
+            foreach (var item in objectSet)
             {
                 carsList.Add(item as Car);
             }
 
-            return new GetCarsOperationResult() { Cars = carsList };
+            return new GetCarsOperationResult() { Results = carsList };
+        }
+
+        GetCarsOperationResult IOperationHandler<GetCarsOperationParams, GetCarsOperationResult>.ConvertResult(IObjectSet objectSet)
+        {
+            return ConvertResult(objectSet);
         }
     }
 }

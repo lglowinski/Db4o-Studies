@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Db4o_Sprawozdanie.Models;
 
 namespace Db4o_Sprawozdanie.Operations.Params
@@ -12,6 +9,7 @@ namespace Db4o_Sprawozdanie.Operations.Params
         {
             var newParam = new T();
             var properties = typeof(T).GetProperties();
+            Console.WriteLine();
             foreach(var property in properties)
             {
                 Console.Write($"{property.Name}: ");
@@ -24,7 +22,7 @@ namespace Db4o_Sprawozdanie.Operations.Params
                         var consoleResult = Console.ReadLine();
                         if (propertyInClass.PropertyType.IsEnum)
                         {
-                            var enumValue = GetValueFromEnum(propertyInClass.PropertyType, consoleResult);
+                            var enumValue = GetValueFromEnum(consoleResult);
                             propertyObject.GetType().GetProperty(propertyInClass.Name).SetValue(propertyObject, enumValue, null);
                         }
                         else
@@ -49,16 +47,17 @@ namespace Db4o_Sprawozdanie.Operations.Params
                         propertyValue = Convert.ChangeType(consoleResult, property.PropertyType);
                     }
                     newParam.GetType().GetProperty(property.Name).SetValue(newParam, propertyValue, null);
-                    Console.Write('\n');
                 }
+                Console.Write('\n');
             }
 
             return newParam;
         }
 
-        private TitleEnum GetValueFromEnum(Type type, string consoleResult)
+        private TitleEnum GetValueFromEnum(string consoleResult)
         {
-            return (TitleEnum) Enum.Parse(type, consoleResult);
+            Enum.TryParse(consoleResult, out TitleEnum titleEnum);
+            return titleEnum;
         }
     }
 }

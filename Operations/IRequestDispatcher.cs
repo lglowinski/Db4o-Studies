@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Db4o_Sprawozdanie.Operations
+﻿namespace Db4o_Sprawozdanie.Operations
 {
     public interface IRequestDispatcher
     {
-        TResponse Send<TResponse>(IOperationParams operationParams);
+        void Send<TOperationParams>(TOperationParams operationParams) where TOperationParams : IOperationParams;
+        TResponse Send<TOperationParams, TResponse>(TOperationParams operationParams) where TOperationParams : IOperationParams where TResponse : IOperationResult;
     }
 }

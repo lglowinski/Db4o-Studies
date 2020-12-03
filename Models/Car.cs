@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Db4o_Sprawozdanie.Models
+﻿namespace Db4o_Sprawozdanie.Models
 {
-    public class Car
+    public class Car : IModel
     {
         public Customer Customer;
         public Mechanic Mechanic;
@@ -14,6 +9,9 @@ namespace Db4o_Sprawozdanie.Models
         public string CarIssue;
         public decimal FixPrice = 0;
 
-
+        public override string ToString()
+        {
+            return $"Customer: {Customer}\nMechanic:{Mechanic}\nBrand: {Brand}\nModel: {Model}\nIssue: {CarIssue}\nFix price: {FixPrice}";
+        }
     }
 }

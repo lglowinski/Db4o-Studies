@@ -50,10 +50,15 @@
     <Compile Include="DI\HandlersRegister.cs" />
     <Compile Include="Models\Car.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\IModel.cs" />
     <Compile Include="Models\Mechanic.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\TitleEnum.cs" />
     <Compile Include="Operations\OperationsHandler\AddCarOperationHandler.cs" />
+    <Compile Include="Operations\OperationsHandler\GetCustomersOperationHandler.cs" />
+    <Compile Include="Operations\OperationsHandler\GetMechanicsOperationHandler.cs" />
+    <Compile Include="Operations\Params\GetCustomersOperationParams.cs" />
+    <Compile Include="Operations\Params\GetMechanicsOperationParams.cs" />
     <Compile Include="Operations\Params\NewCarParams.cs" />
     <Compile Include="Operations\IOperationParams.cs" />
     <Compile Include="Operations\IOperationResult.cs" />
@@ -63,6 +68,9 @@
     <Compile Include="Operations\Params\GetCarsOperationParams.cs" />
     <Compile Include="Operations\Params\ParamsFactory.cs" />
     <Compile Include="Operations\Results\GetCarsOperationResult.cs" />
+    <Compile Include="Operations\RequestDispatcher.cs" />
+    <Compile Include="Operations\Results\GetCustomersOperationResult.cs" />
+    <Compile Include="Operations\Results\GetMechanicsOperationResult.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

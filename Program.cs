@@ -6,10 +6,11 @@ namespace Db4o_Sprawozdanie
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             var applicationRunner = new ApplicationRunner();
             Db4oConnection.RegisterDb4oConnection(@"C:\myDb\carsDb.yap");
+            HandlersRegister.RegisterHandlers();
             AppDomain.CurrentDomain.ProcessExit += new EventHandler(OnProcessExit);
             applicationRunner.Run();
         }

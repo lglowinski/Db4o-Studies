@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using Db4o_Sprawozdanie.DI;
+﻿using Db4o_Sprawozdanie.DI;
 using Db4objects.Db4o;
 
 namespace Db4o_Sprawozdanie

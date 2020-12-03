@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Db4objects.Db4o;
 
 namespace Db4o_Sprawozdanie.Operations
 {
-    interface IOperationHandler<in TOperationParams> where TOperationParams : IOperationParams
+    public interface IOperationHandler<in TOperationParams> where TOperationParams : IOperationParams
     {
         void PerformOperation(TOperationParams operationParams);
     }
 
-    interface IOperationHandler<in TOperationParams, TResult> where TOperationParams : IOperationParams where TResult : IOperationResult
+    public interface IOperationHandler<in TOperationParams, TResult> where TOperationParams : IOperationParams where TResult : IOperationResult
     {
         TResult PerformOperation(TOperationParams operationParams);
+        TResult ConvertResult(IObjectSet objectSet);
     }
 }
