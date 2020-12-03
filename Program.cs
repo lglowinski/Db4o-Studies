@@ -9,7 +9,7 @@ namespace Db4o_Sprawozdanie
         static void Main()
         {
             var applicationRunner = new ApplicationRunner();
-            Db4oConnection.RegisterDb4oConnection(@"C:\myDb\carsDb.yap");
+            Db4oConnection.RegisterDb4oConnection($@"{Environment.CurrentDirectory}\carsDb.yap");
             HandlersRegister.RegisterHandlers();
             AppDomain.CurrentDomain.ProcessExit += new EventHandler(OnProcessExit);
             applicationRunner.Run();
